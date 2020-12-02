@@ -1,7 +1,8 @@
 import java.util.Date;
 
 public class Negative {
-	protected static Negative [] negativePatients = new Negative[100];//array to store the negative patients
+	protected static Negative [] negativePatients = new Negative[100];//array to store the enes that tested negative 
+	protected static Negative [] negativeTestsDone = new Negative[100];//array to count tests done to everyone tested negative  
 	private static int count;                              //count created objects
     private int id;                                        //negative patient's id
     private String name;                                   //negative patient's name
@@ -9,7 +10,8 @@ public class Negative {
 
     public Negative(String name, Date dob) {
         negativePatients[count]=this;              //add object to the array
-        count++;                                   //increase the number of created students
+        negativeTestsDone[count]=0;                //add object to the array
+	    count++;                                   //increase the number of created students
         id=count;                                  //assign the current value of the static variable count to the id
         this.name = name;
         this.dob = dob;
