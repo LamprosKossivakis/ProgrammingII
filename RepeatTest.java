@@ -15,8 +15,9 @@ public class RepeatTest {
 				//difference between today's date and the day of the test
 				long diff1 = (date.getTime()-positivePatients[i].//getDate().getTime());
 				long diff = TimeUnit.DAYS.convert(diff1, TimeUnit.MILLISECONDS);
-				if (diff = 15) {
+				if (diff = 15) && (postiveTestsDone==1){
 					System.out.println (positivePatients[i]);
+					positiveTestsDone[i]=2;
 				}
 			}
 		}
@@ -31,8 +32,9 @@ public class RepeatTest {
 				//difference between today's date and the day of the test
 				long diff1 = (date.getTime()-negativePatients[i].//getDate().getTime());
 				long diff = TimeUnit.DAYS.convert(diff1, TimeUnit.MILLISECONDS); 
-				if (diff = 3) {
+				if (diff = 3) && (negativeTestsDone==1) {
 					System.out.println (negativePatients[i]);
+					negativeTestsDone[i]=2;
 				}
 			}
 		}
