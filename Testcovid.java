@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 public class Testcovid {
-	public static void main(String[]args) throws ParseException {
+	public static void test(String[]args) throws ParseException {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Δώσε ονοματεπώνυμο:");
 		String name = scanner.next();
