@@ -2,15 +2,17 @@ package com.company;
 
 import java.util.Date;
 
-public class Postive {
-    protected static Postive [] positivePatients = new Postive[100];//array to store the positivePatients
+public class Positive {
+    protected static Positive [] positivePatients = new Positive[100];//array to store the positivePatients
+    protected static Positive [] positiveTestsDone = new Positive[100];//array to count tests done to every positive patient
     private static int count;                              //count created objects
     private int id;                                        //positivePatient's id
     private String name;                                   //positivePatient's name
     private Date dob;                                      //positivePatient's birthday yyyy/MM/dd
 
     public Postive(String name, Date dob) {
-        positivePatients[count]=this;              //add object to the array
+        positivePatients[count]=this;               //add object to the array
+        positiveTestsDone[count]=0;                 //add object to the array
         count++;                                   //increase the number of created patients
         id=count;                                  //assign the current value of the static variable count to the id
         this.name = name;
