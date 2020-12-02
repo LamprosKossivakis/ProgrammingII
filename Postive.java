@@ -11,7 +11,7 @@ public class Postive {
 
     public Postive(String name, Date dob) {
         positivePatients[count]=this;              //add object to the array
-        count++;                                   //increase the number of created students
+        count++;                                   //increase the number of created patients
         id=count;                                  //assign the current value of the static variable count to the id
         this.name = name;
         this.dob = dob;
