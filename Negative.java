@@ -10,7 +10,7 @@ public class Negative {
 
     public Negative(String name, Date dob) {
         negativePatients[count]=this;              //add object to the array
-        negativeTestsDone[count]=0;                //add object to the array
+        negativeTestsDone[count]=1;                //add object to the array
 	    count++;                                   //increase the number of created students
         id=count;                                  //assign the current value of the static variable count to the id
         this.name = name;
