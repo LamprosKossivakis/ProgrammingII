@@ -10,7 +10,7 @@ public class Positive {
     private String name;                                   //positivePatient's name
     private Date dob;                                      //positivePatient's birthday yyyy/MM/dd
 
-    public Postive(String name, Date dob) {
+    public Positive(String name, Date dob) {
         positivePatients[count]=this;               //add object to the array
         positiveTestsDone[count]=0;                 //add object to the array
         count++;                                   //increase the number of created patients
