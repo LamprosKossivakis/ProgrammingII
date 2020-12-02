@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Main {
   public static void main (String[]args) {
-   int success=0
+   int success=0;
    while (success==0) {
     System.out.println("Καλωσήρθate στην εφαρμογή μας!");
     System.out.println("Επιλέξτε ένα από τα παρακάτω:");
