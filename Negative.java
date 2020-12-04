@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Negative {
 	protected static Negative [] negativePatients = new Negative[100];//array to store the enes that tested negative 
-	protected static Negative [] negativeTestsDone = new Negative[100];//array to count tests done to everyone tested negative  
+	protected static int [] negativeTestsDone = new int [100];//array to count tests done to everyone tested negative  
 	private static int count;                              //count created objects
     private int id;                                        //negative patient's id
     private String name;                                   //negative patient's name
