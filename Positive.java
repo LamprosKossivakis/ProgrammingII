@@ -36,7 +36,7 @@ public class Positive {
         name = nameValue;
     }
 
-    public static void printStudents() {
+    public static void printPositive() {
         for(int i=0;i<positivePatients.length; i++){                //search the positivePatients array
             if (positivePatients[i]!=null){                         //if a patients exists in the specific position [i]
                 System.out.println (positivePatients[i]);
