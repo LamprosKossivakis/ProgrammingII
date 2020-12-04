@@ -1,3 +1,4 @@
+package com.company;
 import java.text.ParseException;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
