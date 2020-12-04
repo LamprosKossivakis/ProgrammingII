@@ -1,0 +1,42 @@
+import java.util.Date;
+
+public class AllTested {
+  protected static AllTested [] testedPeople = new AllTested[100]; //array that includes everyone tested for covid-19
+  private static int count;  //variable that counts created objects
+  private int id;            //tested patient's id
+  private String name;       //tested patient's name
+  private Date dob;          //tested patient's birthday yyyy/MM/dd
+  
+  public AllTested(String name,Date dob) {
+    testedPeople[count] = this;             //add object to the array
+    count++;                                //increase the number of created objects
+    id = count;                             //assign the current value of the static variable count to the id
+    this.name = name;
+    this.dob = dob;
+  }
+   
+  @Override
+  public String toString() {
+    return "Tested patient's  name = " + name +" ,Date of birth " + dob + " and id [" + id +" ]";
+  }
+
+  public String getName(){
+    return name;
+  }
+  public int getID(){
+    return id;
+  }
+
+
+  public void setName(String nameValue){
+    name = nameValue;
+  }
+    
+  public static void printTested() {
+    for(int i=0;i<testedPeople.length; i++){                //search the testedPeople array
+       if (testedPeople[i] != null){                         //if someone tested exists in the specific position [i]
+          System.out.println (testedPeople[i]);
+       }
+    }
+  }
+}
