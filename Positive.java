@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Positive {
     protected static Positive [] positivePatients = new Positive[100];//array to store the positivePatients
-    protected static Positive [] positiveTestsDone = new Positive[100];//array to count tests done to every positive patient
+    protected static int [] positiveTestsDone = new int [100];//array to count tests done to every positive patient
     private static int count;                              //count created objects
     private int id;                                        //positivePatient's id
     private String name;                                   //positivePatient's name
