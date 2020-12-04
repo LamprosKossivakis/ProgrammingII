@@ -16,5 +16,12 @@ public class TestCovid {
         TestCovid patient = new TestCovid(name,date);
         System.out.println(patient.getName() + " getting tested");
 	}
-	
+	public TestCovid(String name, Date dob) {
+		super();
+		this.name = name;
+		this.dob = dob;
+	}
+	public String getName() {
+		return name;
+	}
 }
