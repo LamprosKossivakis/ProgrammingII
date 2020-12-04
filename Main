@@ -14,7 +14,7 @@ public class Main {
     Scanner sc = new Scanner(System.in); //create a Scanner object
     int choice = sc.nextInt(); //Read user input
     if (choice==1) {
-      Testcovid.test();
+      TestCovid.test();
       success=1; 
      } else if (choice==2) {
       AllTested.printTested();
