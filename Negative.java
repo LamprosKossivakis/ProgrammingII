@@ -35,7 +35,7 @@ public class Negative {
         name = nameValue;
     }
 
-    public static void printStudents() {
+    public static void printNegative() {
         for(int i=0;i<negativePatients.length; i++){                //search the negative patients' array
             if (negativePatients[i]!=null){                         //if a negative patient exists in the specific position [i]
                 System.out.println (negativePatients[i]);
