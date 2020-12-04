@@ -12,7 +12,7 @@ public class Main {
     System.out.println("4.Μετάβαση σε λίστα με αυτούς που βρέθηκαν αρνητικοί στον ιό");
     System.out.println("5.Παρακολούθηση της επιδημιολογικής εικόνας της περιοχής σας και ενδιαφερόντων στατιστικών στοιχείων σχετικά με τον ιό");
     Scanner sc = new Scanner(System.in); //create a Scanner object
-    int choice = sc.nextLine(); //Read user input
+    int choice = sc.nextInt(); //Read user input
     if (choice==1) {
       Testcovid.test();
       success=1; 
