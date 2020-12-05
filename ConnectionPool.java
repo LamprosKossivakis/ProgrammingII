@@ -1,3 +1,4 @@
+package connection_pooling;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,7 +15,9 @@ public class ConnectionPool implements Runnable{
     public ConnectionPool() {
     }
     
-    
+    /**
+     * Constructor of ConnectionPool class
+     */
     public ConnectionPool(String url, String username,
                   String password, int initialConnections, int maxConnections,
                   boolean waitIfBusy) throws SQLException {
