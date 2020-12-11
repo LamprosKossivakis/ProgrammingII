@@ -26,6 +26,11 @@ public class Negative {
     public String getName(){
         return name;
     }
+	
+    public Date getDateOfBirth() {
+        return dob;	
+    }
+    
     public int getID(){
         return id;
     }
