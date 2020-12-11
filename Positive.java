@@ -31,7 +31,10 @@ public class Positive {
         return id;
     }
 
-
+     public Date getDateOfBirth() {
+        return dob;	
+    }
+    
     public void setName(String nameValue){
         name = nameValue;
     }
