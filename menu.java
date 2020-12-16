@@ -32,6 +32,7 @@ public class menu {
 				String surname = scan.next();
 				System.out.println("AGE: ");
 				int age = scan.nextInt();
+				System.out.println("CHOOSE 0 IF NEGATIVE AND 1 IF POSITIVE");
 				System.out.println("TESTED: ");
 				int test = scan.nextInt();
 				execute.insert(AMKA, name, surname, age, test);
