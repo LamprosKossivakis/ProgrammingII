@@ -1,4 +1,5 @@
 package com.company;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Negative {
@@ -9,7 +10,20 @@ public class Negative {
     private String name;                                   //negative patient's name
     private Date dob;                                      //negative patient's birthday yyyy/MM/dd
 
-    public Negative(String name, Date dob) {
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    Date date = new Date();
+    public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	private String today = formatter.format(date);
+    //, Date dob
+    public Negative(String name) {
         negativePatients[count]=this;              //add object to the array
         negativeTestsDone[count]=1;                //add object to the array
 	    count++;                                   //increase the number of created students
@@ -26,14 +40,23 @@ public class Negative {
     public String getName(){
         return name;
     }
-	
+    public int getID(){
+        return id;
+    }
+    
+    public String getToday() {
+		return today;
+	}
+
+
+	public void setToday(String today) {
+		this.today = today;
+	}
+
     public Date getDateOfBirth() {
         return dob;	
     }
     
-    public int getID(){
-        return id;
-    }
 
 
     public void setName(String nameValue){
@@ -49,4 +72,3 @@ public class Negative {
     }
 
 }
-
