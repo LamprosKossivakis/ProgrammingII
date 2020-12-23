@@ -1,7 +1,9 @@
 package com.company;
 
 import java.util.Date;
-
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.text.SimpleDateFormat;
 public class Positive {
     protected static Positive [] positivePatients = new Positive[100];//array to store the positivePatients
     protected static int [] positiveTestsDone = new int [100];//array to count tests done to every positive patient
@@ -10,31 +12,59 @@ public class Positive {
     private String name;                                   //positivePatient's name
     private Date dob;                                      //positivePatient's birthday yyyy/MM/dd
 
-    public Positive(String name, Date dob) {
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    Date date = new Date();
+    public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	private String today = formatter.format(date);
+    //, Date dob
+    public Positive(String name) {
         positivePatients[count]=this;               //add object to the array
         positiveTestsDone[count]=1;                 //add object to the array
         count++;                                   //increase the number of created patients
         id=count;                                  //assign the current value of the static variable count to the id
         this.name = name;
         this.dob = dob;
+        this.today =today;
+        
     }
+
 
     @Override
     public String toString() {
-        return "Positive patient's  name = " + name +" ,Date of birth " + dob + " and id [" + id +" ]";
+        return "Positive patient's  name = " + name +" ,Date of birth " + dob + " and id [" + id +" ]"+ today;
     }
 
-    public String getName(){
+    public String getToday() {
+		return today;
+	}
+
+
+	public void setToday(String today) {
+		this.today = today;
+	}
+
+
+	public String getName(){
         return name;
     }
+    
+    public Date getDateOfBirth() {
+        return dob;	
+    }
+    
     public int getID(){
         return id;
     }
 
-     public Date getDateOfBirth() {
-        return dob;	
-    }
-    
+
     public void setName(String nameValue){
         name = nameValue;
     }
