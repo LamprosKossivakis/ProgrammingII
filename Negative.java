@@ -1,24 +1,24 @@
 package com.company;
 
-import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class Positive {
-	protected static Positive[] positivePatients = new Positive[100]; // array to store the positivePatients
-	protected static int[] positiveTestsDone = new int[100]; // array to count tests done to every positive patient
+public class Negative {
+	protected static Negative[] negativePatients = new Negative[100];// array to store the enes that tested negative
+	protected static int[] negativeTestsDone = new int[100];// array to count tests done to everyone tested negative
 	private static int count; // count created objects
-	private int id; // positivePatient's id
-	private String name; // positivePatient's name
-	// private Date dob; // positivePatient's birthday yyyy/MM/dd
+	private int id; // negative patient's id
+	private String name; // negative patient's name
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private String today; // day the patient was tested - String
+	// private Date dob; // negative patient's birthday
 	private Date dot; // day the patient was tested - Date
 
-	public Positive(String name, String today) {
-		positivePatients[count] = this; // add object to the array
-		positiveTestsDone[count] = 1; // add object to the array
-		count++; // increase the number of created patients
+	public Negative(String name, String today) {
+		negativePatients[count] = this; // add object to the array
+		negativeTestsDone[count] = 1; // add object to the array
+		count++; // increase the number of created students
 		id = count; // assign the current value of the static variable count to the id
 		this.name = name;
 		this.today = today;
@@ -31,7 +31,7 @@ public class Positive {
 
 	@Override
 	public String toString() {
-		return "Positive patient's  name = " + name + ", id [" + id + "] and date of test: " + today;
+		return "Negative patient's  name = " + name + ", id [" + id + " ] and date of test = " + today;
 	}
 
 	public Date getDot() {
@@ -42,6 +42,14 @@ public class Positive {
 		this.dot = dot;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public int getID() {
+		return id;
+	}
+
 	public String getToday() {
 		return today;
 	}
@@ -50,26 +58,18 @@ public class Positive {
 		this.today = today;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	/*
 	 * public Date getDateOfBirth() { return dob; }
 	 */
-
-	public int getID() {
-		return id;
-	}
 
 	public void setName(String nameValue) {
 		name = nameValue;
 	}
 
-	public static void printPositive() {
-		for (int i = 0; i < positivePatients.length; i++) { // search the positivePatients array
-			if (positivePatients[i] != null) { // if a patients exists in the specific position [i]
-				System.out.println(positivePatients[i]);
+	public static void printNegative() {
+		for (int i = 0; i < negativePatients.length; i++) { // search the negative patients' array
+			if (negativePatients[i] != null) { // if a negative patient exists in the specific position [i]
+				System.out.println(negativePatients[i]);
 			}
 		}
 	}
