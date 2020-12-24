@@ -1,74 +1,77 @@
 package com.company;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
-public class Negative {
-	protected static Negative [] negativePatients = new Negative[100];//array to store the enes that tested negative 
-	protected static int [] negativeTestsDone = new int [100];//array to count tests done to everyone tested negative  
-	private static int count;                              //count created objects
-    private int id;                                        //negative patient's id
-    private String name;                                   //negative patient's name
-    private Date dob;                                      //negative patient's birthday yyyy/MM/dd
+public class Positive {
+	protected static Positive[] positivePatients = new Positive[100]; // array to store the positivePatients
+	protected static int[] positiveTestsDone = new int[100]; // array to count tests done to every positive patient
+	private static int count; // count created objects
+	private int id; // positivePatient's id
+	private String name; // positivePatient's name
+	// private Date dob; // positivePatient's birthday yyyy/MM/dd
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private String today; // day the patient was tested - String
+	private Date dot; // day the patient was tested - Date
 
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-    Date date = new Date();
-    public Date getDate() {
-		return date;
+	public Positive(String name, String today) {
+		positivePatients[count] = this; // add object to the array
+		positiveTestsDone[count] = 1; // add object to the array
+		count++; // increase the number of created patients
+		id = count; // assign the current value of the static variable count to the id
+		this.name = name;
+		this.today = today;
+		try {
+			this.dot = sdf.parse(today); // day the patient was tested - Date
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
-
-	public void setDate(Date date) {
-		this.date = date;
+	@Override
+	public String toString() {
+		return "Positive patient's  name = " + name + ", id [" + id + "] and date of test: " + today;
 	}
 
-	private String today = formatter.format(date);
-    //, Date dob
-    public Negative(String name) {
-        negativePatients[count]=this;              //add object to the array
-        negativeTestsDone[count]=1;                //add object to the array
-	    count++;                                   //increase the number of created students
-        id=count;                                  //assign the current value of the static variable count to the id
-        this.name = name;
-        this.dob = dob;
-    }
+	public Date getDot() {
+		return dot;
+	}
 
-    @Override
-    public String toString() {
-        return "Negative patient's  name = " + name +" ,Date of birth " + dob + " and id [" + id +" ]";
-    }
+	public void setDot(Date dot) {
+		this.dot = dot;
+	}
 
-    public String getName(){
-        return name;
-    }
-    public int getID(){
-        return id;
-    }
-    
-    public String getToday() {
+	public String getToday() {
 		return today;
 	}
-
 
 	public void setToday(String today) {
 		this.today = today;
 	}
 
-    public Date getDateOfBirth() {
-        return dob;	
-    }
-    
+	public String getName() {
+		return name;
+	}
 
+	/*
+	 * public Date getDateOfBirth() { return dob; }
+	 */
 
-    public void setName(String nameValue){
-        name = nameValue;
-    }
+	public int getID() {
+		return id;
+	}
 
-    public static void printNegative() {
-        for(int i=0;i<negativePatients.length; i++){                //search the negative patients' array
-            if (negativePatients[i]!=null){                         //if a negative patient exists in the specific position [i]
-                System.out.println (negativePatients[i]);
-            }
-        }
-    }
+	public void setName(String nameValue) {
+		name = nameValue;
+	}
+
+	public static void printPositive() {
+		for (int i = 0; i < positivePatients.length; i++) { // search the positivePatients array
+			if (positivePatients[i] != null) { // if a patients exists in the specific position [i]
+				System.out.println(positivePatients[i]);
+			}
+		}
+	}
 
 }
