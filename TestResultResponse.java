@@ -2,7 +2,7 @@ package com.company;
 
 public class TestResultResponse {
 
-    public void TestResultResponse(int testResult) {                                         /** The test result value from test lab.*/
+    public void testResultResponse(int testResult) {                                         /** The test result value from test lab.*/
         int x = testResult;
         switch (x) {
             case 0:
