@@ -12,7 +12,7 @@ public class RepeatTest {
 
 	// the methods print all the negative and positive patients that need to be
 	// tested today
-	public static int place(Positive[] p, String name) {
+	public static int placePositive(Positive[] p, String name) {
 		int tableplace = -1;
 		for (int i = 0; i <= p.length; i++) {
 			if (p[i].getName() == name) {
@@ -22,6 +22,32 @@ public class RepeatTest {
 		return tableplace;
 	}
 
+	public static int placeNegative(Negative[] p, String name) {
+		int tableplace = -1;
+		for (int i = 0; i <= p.length; i++) {
+			if (p[i].getName() == name) {
+				tableplace = i;
+			}
+		}
+		return tableplace;
+	}
+
+	public static Positive[] removePositive(Positive[] p, int tableplace) {
+        List<Positive> list = Arrays.asList(p);     
+        for(Positive item : p)
+            if( item.getID() == tableplace )
+                list.remove(item);
+        return list.toArray(p);
+    }
+	
+	public static Negative[] removeNegative(Negative[] p, int tableplace) {
+        List<Negative> list = Arrays.asList(p);     
+        for(Negative item : p)
+            if( item.getID() == tableplace )
+                list.remove(item);
+        return list.toArray(p);
+    }
+	
 	public static void RepeatPositive() {
 		Scanner sc = new Scanner(System.in);
 		Date date = new Date(System.currentTimeMillis()); // today's date
@@ -41,7 +67,7 @@ public class RepeatTest {
 						// διαγραφή και ξαναδημιουργία αντικειμένου με καινουριο date of test
 						System.out.println("Please insert patient's name");
 						String name = sc.next();
-						int tableplace = place(Positive.positivePatients, name);
+						int tableplace = placePositive(Positive.positivePatients, name);
 
 						if (tableplace == -1) {
 							System.out.println("There is no patient with such name");
@@ -51,7 +77,8 @@ public class RepeatTest {
 							// ArrayUtils.remove(Positive.positivePatients,tableplace);
 							Negative negativePatients = new Negative(name);
 
-							positivePatients_new = ArrayUtils.removeElement(Positive.positivePatients, tableplace);
+							//positivePatients = ArrayUtils.removeElement(Positive.positivePatients, tableplace);
+							removePositive(Positive.positivePatients, tableplace);
 
 						}
 
@@ -82,7 +109,7 @@ public class RepeatTest {
 						// διαγραφή από negative και περασμα στους negative
 						System.out.println("Please insert your name again");
 						String name = sc.next();
-						int tableplace = place(Negative.negativePatients, name);
+						int tableplace = placeNegative(Negative.negativePatients, name);
 						if (tableplace == -1) {
 							System.out.println("There is no patient with such name");
 						} else {
@@ -92,7 +119,8 @@ public class RepeatTest {
 
 							Positive positivePatients = new Positive(name);
 
-							NegativePatients_new = ArrayUtils.removeElement(Negative.negativePatients, tableplace);
+						//	NegativePatients_new = ArrayUtils.removeElement(Negative.negativePatients, tableplace);
+							removeNegative(Negative.negativePatients, tableplace);
 
 						}
 
