@@ -1,12 +1,8 @@
 package com.company;
 
 import java.util.*;
-import java.io.*;
-import java.lang.*;
-import java.lang.reflect.Array;
 import java.util.concurrent.TimeUnit;
 import java.util.Arrays;
-//import org.apache.commons.lang3.ArrayUtils;
 
 public class RepeatTest {
 
@@ -33,21 +29,21 @@ public class RepeatTest {
 	}
 
 	public static Positive[] removePositive(Positive[] p, int tableplace) {
-        List<Positive> list = Arrays.asList(p);     
-        for(Positive item : p)
-            if( item.getID() == tableplace )
-                list.remove(item);
-        return list.toArray(p);
-    }
-	
+		List<Positive> list = Arrays.asList(p);
+		for (Positive item : p)
+			if (item.getID() == tableplace)
+				list.remove(item);
+		return list.toArray(p);
+	}
+
 	public static Negative[] removeNegative(Negative[] p, int tableplace) {
-        List<Negative> list = Arrays.asList(p);     
-        for(Negative item : p)
-            if( item.getID() == tableplace )
-                list.remove(item);
-        return list.toArray(p);
-    }
-	
+		List<Negative> list = Arrays.asList(p);
+		for (Negative item : p)
+			if (item.getID() == tableplace)
+				list.remove(item);
+		return list.toArray(p);
+	}
+
 	public static void RepeatPositive() {
 		Scanner sc = new Scanner(System.in);
 		Date date = new Date(System.currentTimeMillis()); // today's date
@@ -63,8 +59,6 @@ public class RepeatTest {
 					TestResultResponse.testResultResponse(choice);
 					if (choice == 1) { // is negative
 						// διαγραφή και πέρασμα στους negative
-					} else if (choice == 2) { // is positive
-						// διαγραφή και ξαναδημιουργία αντικειμένου με καινουριο date of test
 						System.out.println("Please insert patient's name");
 						String name = sc.next();
 						int tableplace = placePositive(Positive.positivePatients, name);
@@ -72,19 +66,21 @@ public class RepeatTest {
 						if (tableplace == -1) {
 							System.out.println("There is no patient with such name");
 						} else {
-							// array_new = ArrayUtils.removeElement(array, element)
-							// Positive positivePatients =
-							// ArrayUtils.remove(Positive.positivePatients,tableplace);
 							Negative negativePatients = new Negative(name);
-
-							//positivePatients = ArrayUtils.removeElement(Positive.positivePatients, tableplace);
 							removePositive(Positive.positivePatients, tableplace);
-
 						}
-
+						System.out.println("Test has been inserted successfully.");
+						Positive.positiveTestsDone[i] = 2;
+					} else if (choice == 2) { // is positive
+						// διαγραφή και ξαναδημιουργία αντικειμένου με καινουριο date of test
+						System.out.println("Please insert patient's name");
+						String name = sc.next();
+						int tableplace = placePositive(Positive.positivePatients, name);
+						Date date3 = new Date(System.currentTimeMillis());
+						Positive.positivePatients[tableplace].setDot(date3);
+						System.out.println("Test has been inserted successfully.");
+						Positive.positiveTestsDone[i] = 2;
 					}
-					System.out.println(Positive.positivePatients[i]);
-					Positive.positiveTestsDone[i] = 2;
 				}
 			}
 		}
@@ -104,31 +100,31 @@ public class RepeatTest {
 					int choice = sc.nextInt();
 					TestResultResponse.testResultResponse(choice);
 					if (choice == 1) { // is negative again
-						// διαγραφή απο negative
-					} else if (choice == 2) { // is positive
-						// διαγραφή από negative και περασμα στους negative
+						//ολική διαγραφή απο negative
 						System.out.println("Please insert your name again");
 						String name = sc.next();
 						int tableplace = placeNegative(Negative.negativePatients, name);
 						if (tableplace == -1) {
 							System.out.println("There is no patient with such name");
 						} else {
-							// array_new = ArrayUtils.removeElement(array, element)
-							// Positive positivePatients =
-							// ArrayUtils.remove(Positive.positivePatients,tableplace);
-
 							Positive positivePatients = new Positive(name);
-
-						//	NegativePatients_new = ArrayUtils.removeElement(Negative.negativePatients, tableplace);
 							removeNegative(Negative.negativePatients, tableplace);
-
 						}
-
+						System.out.println("Test has been deleted successfully.");
+					} else if (choice == 2) { // is positive
+						// διαγραφή από negative και περασμα στους positive
+						System.out.println("Please insert your name again");
+						String name = sc.next();
+						int tableplace = placeNegative(Negative.negativePatients, name);
+						if (tableplace == -1) {
+							System.out.println("There is no patient with such name");
+						} else {
+							Positive positivePatients = new Positive(name);
+							removeNegative(Negative.negativePatients, tableplace);
+						}
 					}
-
-					System.out.println(Negative.negativePatients[i]);
+					System.out.println("Test has been inserted successfully.");
 					Negative.negativeTestsDone[i] = 2;
-					// Negative newnegativepatients = add(negativepatients, "Dean");
 				}
 			}
 		}
