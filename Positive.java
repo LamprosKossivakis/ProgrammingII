@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Positive {
@@ -13,20 +12,15 @@ public class Positive {
 	// private Date dob; // positivePatient's birthday yyyy/MM/dd
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private String today; // day the patient was tested - String
-	private Date dot; // day the patient was tested - Date
+	private Date dot = new Date(System.currentTimeMillis()); // day the patient was tested - Date
 
-	public Positive(String name, String today) {
+	public Positive(String name) {
 		positivePatients[count] = this; // add object to the array
 		positiveTestsDone[count] = 1; // add object to the array
 		count++; // increase the number of created patients
 		id = count; // assign the current value of the static variable count to the id
 		this.name = name;
-		this.today = today;
-		try {
-			this.dot = sdf.parse(today); // day the patient was tested - Date
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		this.today = sdf.format(dot);
 	}
 
 	@Override
