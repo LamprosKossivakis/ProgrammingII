@@ -1,6 +1,5 @@
 package com.company;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,23 +9,18 @@ public class Negative {
 	private static int count; // count created objects
 	private int id; // negative patient's id
 	private String name; // negative patient's name
+	// private Date dob; // negative patient's birthday
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private String today; // day the patient was tested - String
-	// private Date dob; // negative patient's birthday
-	private Date dot; // day the patient was tested - Date
+	private Date dot = new Date(System.currentTimeMillis()); // day the patient was tested - Date
 
-	public Negative(String name, String today) {
+	public Negative(String name) {
 		negativePatients[count] = this; // add object to the array
 		negativeTestsDone[count] = 1; // add object to the array
 		count++; // increase the number of created students
 		id = count; // assign the current value of the static variable count to the id
 		this.name = name;
-		this.today = today;
-		try {
-			this.dot = sdf.parse(today); // day the patient was tested - Date
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		this.today = sdf.format(dot);
 	}
 
 	@Override
