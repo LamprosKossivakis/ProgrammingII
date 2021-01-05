@@ -1,5 +1,3 @@
-package connection_pooling;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +16,7 @@ public class execute {
 	public static void insert(int AMKA, String name, String surname, int age, int test) throws SQLException {
 
 		ConnectionPool connectionPool = new ConnectionPool("jdbc:sqlserver://localhost:1433;databaseName=COVID_19",
-				"sa", "dimitris", 5, 10, true);
+				"sa", "lampros7", 5, 10, true);
 
 		Connection con = connectionPool.getConnection();
 		// System.out.println("We have got connection from ConnectionPool class");
@@ -52,7 +50,7 @@ public class execute {
 	public static void show() throws SQLException {
 
 		ConnectionPool connectionPool = new ConnectionPool("jdbc:sqlserver://localhost:1433;databaseName=COVID_19",
-				"sa", "dimitris", 5, 10, true);
+				"sa", "lampros7", 5, 10, true);
 
 		Connection con = connectionPool.getConnection();
 		// System.out.println("We have got connection from ConnectionPool class");
@@ -85,7 +83,7 @@ public class execute {
 	public static int  search(int AMKA) throws SQLException {
 
 		ConnectionPool connectionPool = new ConnectionPool("jdbc:sqlserver://localhost:1433;databaseName=COVID_19",
-				"sa", "dimitris", 5, 10, true);
+				"sa", "lampros7", 5, 10, true);
 
 		Connection con = connectionPool.getConnection();
 		PreparedStatement prepStmt1 = con.prepareStatement("select * from people where AMKA = " + AMKA + "  ");
@@ -118,7 +116,7 @@ public class execute {
 	public static void insert_cont(String name, String surname, int age, int AMKA,int test) throws SQLException {
 
 		ConnectionPool connectionPool = new ConnectionPool("jdbc:sqlserver://localhost:1433;databaseName=COVID_19",
-				"sa", "dimitris", 5, 10, true);
+				"sa", "lampros7", 5, 10, true);
 
 		Connection con = connectionPool.getConnection();
 		// System.out.println("We have got connection from ConnectionPool class");
@@ -154,7 +152,7 @@ public class execute {
 	public static void show_contacts(int AMKA) throws SQLException {
 
 		ConnectionPool connectionPool = new ConnectionPool("jdbc:sqlserver://localhost:1433;databaseName=COVID_19",
-				"sa", "dimitris", 5, 10, true);
+				"sa", "lampros7", 5, 10, true);
 
 		Connection con = connectionPool.getConnection();
 		// System.out.println("We have got connection from ConnectionPool class");
@@ -188,7 +186,7 @@ public class execute {
 	public static int search_contact(String name, String surname) throws SQLException {
 
 		ConnectionPool connectionPool = new ConnectionPool("jdbc:sqlserver://localhost:1433;databaseName=COVID_19",
-				"sa", "dimitris", 5, 10, true);
+				"sa", "lampros7", 5, 10, true);
 
 		Connection con = connectionPool.getConnection();
 		PreparedStatement prepStmt1 = con.prepareStatement(
@@ -208,7 +206,7 @@ public class execute {
 	public static void modify_contact(String name, String surname, int test) throws SQLException {
 
 		ConnectionPool connectionPool = new ConnectionPool("jdbc:sqlserver://localhost:1433;databaseName=COVID_19",
-				"sa", "dimitris", 5, 10, true);
+				"sa", "lampros7", 5, 10, true);
 
 		Connection con = connectionPool.getConnection();
 		PreparedStatement prepStmt1 = con.prepareStatement(
@@ -230,7 +228,7 @@ public class execute {
 		
 		
 		ConnectionPool connectionPool = new ConnectionPool("jdbc:sqlserver://localhost:1433;databaseName=COVID_19",
-				"sa", "dimitris", 5, 10, true);
+				"sa", "lampros7", 5, 10, true);
 		
 		Connection con = connectionPool.getConnection();
 		
@@ -253,3 +251,4 @@ public class execute {
 	
 
 }
+
